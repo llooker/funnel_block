@@ -24,6 +24,16 @@ view: funnel_demo_view {
     sql: ${cost} ;;
   }
 
+  measure: ctr {
+    type:  number
+    sql: ${total_clicks} / ${total_impressions} ;;
+  }
+
+  measure: cpc {
+    type:  number
+    sql: ${total_cost} / ${total_clicks} ;;
+  }
+
   dimension_group: date {
     type: time
     sql: ${TABLE}.date ;;
