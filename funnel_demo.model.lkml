@@ -1,16 +1,22 @@
 connection: "funnel_demo_data"
 
-# include all the views
-include: "*.view"
+include: "funnel_demo_view.view.lkml"         # include all views in this project
+include: "*.dashboard.lookml"  # include all dashboards in this project
 
-# include all the dashboards
-include: "*.dashboard"
-
-datagroup: funnel_demo_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "1 hour"
+# # Select the views that should be a part of this model,
+# # and define the joins that connect them together.
+#
+explore: funnel_demo {
+  label: "Funnel Demo"
+  view_name: funnel_demo_view
 }
-
-persist_with: funnel_demo_default_datagroup
-
-explore: funnel_aggregated_all_dates {}
+#   join: orders {
+#     relationship: many_to_one
+#     sql_on: ${orders.id} = ${order_items.order_id} ;;
+#   }
+#
+#   join: users {
+#     relationship: many_to_one
+#     sql_on: ${users.id} = ${orders.user_id} ;;
+#   }
+# }

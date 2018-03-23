@@ -1,4 +1,4 @@
-view: funnel_query {
+view: funnel_demo_view {
   derived_table: {
     sql: select * from funnel_aggregated_all_dates
       ;;
