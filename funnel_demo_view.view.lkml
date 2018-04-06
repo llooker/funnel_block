@@ -4,6 +4,8 @@ view: funnel_demo_view {
       ;;
   }
 
+# These were manually added and shoule be replaced with the generated fields below
+
   measure: count {
     type: count
     drill_fields: [detail*]
@@ -54,57 +56,9 @@ view: funnel_demo_view {
     sql: ${TABLE}.date ;;
   }
 
-  dimension: platform {
-    type: string
-    sql: ${TABLE}.platform ;;
-  }
-
-  dimension: date_year_num {
-    type: number
-    sql: ${TABLE}.date_year ;;
-  }
-
-  dimension: ad_account {
-    type: string
-    sql: ${TABLE}.ad_account ;;
-  }
-
-  dimension: market {
-    type: string
-    sql: ${TABLE}.market ;;
-  }
-
-  dimension: manufacturer {
-    type: string
-    sql: ${TABLE}.manufacturer ;;
-  }
-
-  dimension: tactic {
-    type: string
-    sql: ${TABLE}.tactic ;;
-  }
-
-  dimension: product_type {
-    type: string
-    sql: ${TABLE}.product_type ;;
-  }
-
-  dimension: media_type {
-    type: string
-    sql: ${TABLE}.media_type ;;
-  }
-
-
   set: detail {
     fields: [
       date_time,
-      platform,
-      ad_account,
-      market,
-      manufacturer,
-      tactic,
-      product_type,
-      media_type,
       traffic_source,
       paid_organic,
       campaign,
