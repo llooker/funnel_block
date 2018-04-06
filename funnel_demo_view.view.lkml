@@ -1,6 +1,6 @@
 view: funnel_demo_view {
   derived_table: {
-    sql: select * from funnel_aggregated_all_dates
+    sql: select * from looker_demo_aggregated
       ;;
   }
 
@@ -32,6 +32,21 @@ view: funnel_demo_view {
   measure: cpc {
     type:  number
     sql: ${total_cost} / ${total_clicks} ;;
+  }
+
+  measure: total_transactions {
+    type:  sum
+    sql:  ${googleanalytics_ga_transactions} ;;
+  }
+
+  measure: total_revenue {
+    type:  sum
+    sql:  ${googleanalytics_ga_transactionRevenue} ;;
+  }
+
+  measure: total_sessions {
+    type:  sum
+    sql:  ${googleanalytics_ga_sessions} ;;
   }
 
   dimension_group: date {
@@ -101,6 +116,27 @@ view: funnel_demo_view {
   }
 
   dimension: impressions {
+    type: number
+    sql: ${TABLE}.impressions ;;
+  }
+
+  dimension: googleanalytics_ga_transactionRevenue {
+    label: "Transaction revenue"
+    hidden: yes
+    type: number
+    sql: ${TABLE}.impressions ;;
+  }
+
+  dimension: googleanalytics_ga_transactions {
+    label: "Transactions"
+    hidden: yes
+    type: number
+    sql: ${TABLE}.impressions ;;
+  }
+
+  dimension: googleanalytics_ga_sessions {
+    label: "Sessions"
+    hidden: yes
     type: number
     sql: ${TABLE}.impressions ;;
   }
