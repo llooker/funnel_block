@@ -59,6 +59,11 @@ view: funnel_demo_view {
     sql: ${TABLE}.platform ;;
   }
 
+  dimension: date_year_num {
+    type: number
+    sql: ${TABLE}.date_year ;;
+  }
+
   dimension: ad_account {
     type: string
     sql: ${TABLE}.ad_account ;;
