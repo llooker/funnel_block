@@ -129,21 +129,21 @@ view: funnel_demo_view {
     label: "Transaction revenue"
     hidden: yes
     type: number
-    sql: ${TABLE}.impressions ;;
+    sql: ${TABLE}.googleanalytics_ga_transactionRevenue ;;
   }
 
   dimension: googleanalytics_ga_transactions {
     label: "Transactions"
     hidden: yes
     type: number
-    sql: ${TABLE}.impressions ;;
+    sql: ${TABLE}.googleanalytics_ga_transactions ;;
   }
 
   dimension: googleanalytics_ga_sessions {
     label: "Sessions"
     hidden: yes
     type: number
-    sql: ${TABLE}.impressions ;;
+    sql: ${TABLE}.googleanalytics_ga_sessions ;;
   }
 
   set: detail {
