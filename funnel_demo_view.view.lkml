@@ -22,6 +22,8 @@ view: funnel_demo_view {
   measure: total_cost {
     type:  sum
     sql: ${cost} ;;
+    value_format_name: usd
+
   }
 
   measure: ctr {
@@ -42,11 +44,13 @@ view: funnel_demo_view {
   measure: total_revenue {
     type:  sum
     sql:  ${googleanalytics_ga_transactionRevenue} ;;
+    value_format_name: usd
   }
 
   measure: total_sessions {
     type:  sum
     sql:  ${googleanalytics_ga_sessions} ;;
+    value_format_name: decimal_0
   }
 
   dimension_group: date {
@@ -97,6 +101,7 @@ view: funnel_demo_view {
   dimension: traffic_source {
     type: string
     sql: ${TABLE}.traffic_source ;;
+    drill_fields: [campaign]
   }
 
   dimension: paid_organic {
