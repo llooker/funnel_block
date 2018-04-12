@@ -1,4 +1,4 @@
-connection: "funnel_demo_data"
+connection: "funnel_looker_demo"
 
 include: "funnel_demo_view.view.lkml"         # include all views in this project
 include: "*.dashboard.lookml"  # include all dashboards in this project
