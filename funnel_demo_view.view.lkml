@@ -1,7 +1,27 @@
 view: funnel_demo_view {
   derived_table: {
-    sql: select * from looker_demo_aggregated
-      ;;
+    sql:
+select timestamp(date) as date,
+sourceType as platform,
+sourceName as ad_account,
+dim_1b1kcbdqb_b946 as market,
+dim_1b1kcdt0j_82ee as manufacturer,
+dim_1b1kcia3s_0b41 as tactic,
+dim_1b1kcl0eo_ac76 as product_type,
+dim_1b1kcsrc3_254a as media_type,
+dim_1bca8okbn_9804 as traffic_source,
+dim_1bca8oljp_5eed as paid_organic,
+dim_1bca8omvo_936e as campaign,
+common_cost as cost,
+common_clicks as clicks,
+common_impressions as impressions,
+common_cost,
+common_clicks,
+common_impressions,
+googleanalytics_ga_transactionRevenue,
+googleanalytics_ga_transactions,
+googleanalytics_ga_sessions
+FROM `firebase-funnel.funnel_demo.funnel_data_*` ;;
   }
 
   measure: count {
