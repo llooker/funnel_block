@@ -6,26 +6,18 @@
 view: funnel_demo_view {
   derived_table: {
     sql:
-select timestamp(date) as date,
+select timestamp(date) as timestamp,
 sourceType as platform,
 sourceName as ad_account,
+common_cost as cost,
+common_clicks as clicks,
+common_impressions as impressions,
 'noop' as market,
 'noop' as manufacturer,
 'noop' as tactic,
 'noop' as product_type,
 'noop' as media_type,
-traffic_source,
-paid_organic,
-campaign,
-common_cost as cost,
-common_clicks as clicks,
-common_impressions as impressions,
-common_cost,
-common_clicks,
-common_impressions,
-googleanalytics_ga_transactionRevenue,
-googleanalytics_ga_transactions,
-googleanalytics_ga_sessions
+*
 FROM `firebase-funnel.funnel_looker_demo.funnel_data_*`;;
   }
 
@@ -80,7 +72,7 @@ FROM `firebase-funnel.funnel_looker_demo.funnel_data_*`;;
 
   dimension_group: date {
     type: time
-    sql: ${TABLE}.date ;;
+    sql: ${TABLE}.timestamp ;;
   }
 
   dimension: platform {
@@ -88,10 +80,6 @@ FROM `firebase-funnel.funnel_looker_demo.funnel_data_*`;;
     sql: ${TABLE}.platform ;;
   }
 
-  dimension: date_year_num {
-    type: number
-    sql: ${TABLE}.date_year ;;
-  }
 
   dimension: ad_account {
     type: string
